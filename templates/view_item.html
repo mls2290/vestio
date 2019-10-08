@@ -1,0 +1,494 @@
+{#Michaella Schaszberger#}
+{#mls2290#}
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'view_item.js') }}"></script>
+        <script>
+            var info = {{info|tojson}}
+            var item_id = {{ item_id|safe }}
+            var clothes_data = {{ clothes_data|safe }};
+            console.log(info["Name"])
+            console.log(item_id)
+
+
+        </script>
+        <style>
+            #top{
+                margin-top: -30px;
+            }
+            #picture_jpg{
+                width:600px;
+                height:300px;
+            }
+            #pic_space{
+                padding-top: 50px;
+            }
+            #namespace{
+                margin-top: -30px;
+            }
+            #edit_item{
+                margin-left:15px;
+                padding-left:15px;
+                font-size:14px;
+                width:100%;
+            }
+            .col-md-3{
+                font-size: 20px;
+                margin-bottom: -20px;
+            }
+            .col-md-8{
+                font-size: 20px;
+            }
+            .col-md-10{
+                font-size: 20px;
+            }
+            .col-md-5{
+                font-size: 20px;
+                margin-top:-20px;
+            }
+            .col-md-6{
+                font-size: 20px;
+            }
+            .header_edit{
+                font-size:60px;
+                font-weight:bold;
+            }
+            .grid-container {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              grid-template-rows: 1fr 1fr 1fr;
+              grid-template-areas: "item item seller seller" "item item seller seller" "item item seller seller";
+            }
+           .header {
+         padding: 30px;
+               padding-bottom:-20px;
+         text-align: center;
+           background: white;
+           font-size: 60px;
+            font-weight: bold;
+        }
+       .header h1 {
+           font-size: 60px;
+           font-weight:bold;
+        }
+       .email{
+           {#border-style:solid;#}
+           font-size:25px;
+       }
+       .picture{
+           height:500px;
+           width:550px;
+           padding:60px;
+       }
+       .profpic{
+           height:250px;
+           width:300px;
+           margin-left:550px;
+           margin-top:30px;
+       }
+       .words{
+        margin-left:60px;
+           margin-top:60px;
+           margin-bottom: 40px;
+           font-size:45px;
+           font-family:verdana;
+       }
+       .description{
+           margin-left:440px;
+       }
+       .price{
+           margin-bottom:30px;
+           font-size:20px;
+       }
+       .adjust{
+          font-size:20px;
+           margin-left:440px;
+
+       }
+
+.item { grid-area: item; }
+
+.seller { grid-area: seller; }
+        </style>
+</head>
+<body>
+      <h1 class="header">vestio</h1>
+    <div>
+        {% extends "layout.html" %}
+        {% block content %}
+    </div>
+            <!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+{#		<link rel="stylesheet" type="text/css" href="common.css" />#}
+
+		<style>
+body {
+	margin: 0;
+	padding: 20px;
+	{#color: #333;#}
+	background-color: #efefef;
+	font: 87.5%/1.4 HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	height: auto;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+figcaption {
+	font-family: "Georgia","Times New Roman",serif;
+	text-align: center;
+	padding: 0.5em 0 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia","Times New Roman",serif;
+    font-weight: normal;
+    font-size:35px;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 0.2em;
+}
+
+h1.title {
+	text-align: center;
+    font-size:40px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    font-size: 30px;%;
+    margin-bottom: 0.2em;
+}
+
+p {
+	margin:0;
+	padding: 0 0 1em 0;
+}
+
+.wrapper {
+	background-color: #fff;
+	color: #444;
+	padding: 1em 3% 1em 3%;
+	margin: 0 auto 1em auto;
+
+}
+
+.mainnav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 20px;
+}
+
+.mainnav a:link, .mainnav a:visited {
+	text-decoration: none;
+	color: #444;
+}
+
+.quote {
+    font-size:20px;
+	{#font: 150%/1.4 "Georgia","Times New Roman",serif;#}
+	padding: 0;
+	margin: 0;
+}
+			.mainnav {
+				grid-area: nav;
+			}
+
+			.subhead {
+				grid-area: subhead;
+			}
+
+			.quote {
+				grid-area: quote;
+			}
+
+			.content {
+				grid-area: content;
+			}
+
+			.feature-image {
+				grid-area: feature;
+			}
+
+			@media only screen and (min-width: 700px) and (max-width: 900px){
+				.wrapper {
+					display: grid;
+					width: 100%;
+                    height:100%;
+					grid-template-columns: auto ;
+					grid-template-rows: auto ;
+					grid-template-areas: "nav"
+					"subhead"
+					"quote"
+					"content"
+					"feature";
+				}
+
+			}
+
+			@media only screen and (min-width: 700px) and (max-width: 980px){
+				.wrapper {
+
+					display:grid;
+					width: 100%;
+                    height:100%;
+					grid-template-columns: 20% 5% auto ;
+					grid-template-rows: auto ;
+					grid-template-areas: ". . subhead"
+					"nav . quote"
+					"nav . feature"
+					"nav . content" ;
+				}
+
+			}
+
+			@media only screen and (min-width: 980px) {
+				.wrapper {
+					display: grid;
+					grid-template-columns: 200px 40px auto 40px 200px;
+					grid-template-rows: auto ;
+					grid-template-areas: ". . subhead . ."
+					"nav . feature . quote"
+					"nav . content . quote";
+					max-width: 1500px;
+                    max-height:2500px;
+				}
+
+			}
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+            .bigbutton{
+                width: 150px;
+                height: 100px;
+                font-size: 30px;
+                margin-left: 45px;
+            }
+
+            .text-align{
+                text-align:center;
+                margin-bottom:15px;
+            }
+
+		</style>
+	</head>
+	<body>
+    <script>
+        function myFunction() {
+            window.location.replace("http://127.0.0.1:5000/search")
+        }
+</script>
+
+    <h1 class="title"><div class="header_edit words">{{ info["Name"] }}</div>
+        <div id = "edit_item"></div>
+
+	<article class="wrapper">
+
+	<nav class="mainnav">
+		<ul>
+            <div align ="left" style='height:200px;margin-top:38px;'><iframe src="https://calendar.google.com/calendar/b/1/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=NjQ1ZnE5ZHFobWVrNjQ5dmZzcmlmOGowaXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237CB342&amp;showNav=1&amp;showTabs=0&amp;title=my%20availability&amp;mode=WEEK&amp;showDate=1&amp;showCalendars=1&amp;showPrint=0&amp;showTz=0\" style="border-width:0" width="420" height="300" frameborder="0" scrolling="no"></iframe>
+            <div style="margin-top:100px;"><div class="mapouter" align="left" style="margin-left:-10px;margin-right:30px;"><div class="gmap_canvas" align="left"><iframe width="350" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=columbia%20university&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/20-off-discount-for-elegant-themes-divi-sale-coupon-code-2019/"></a></div><style>.mapouter{position:relative;text-align:right;height:549px;width:628px;}.gmap_canvas {overflow:hidden;background:none!important;height:549px;width:628px;}</style></div></div>
+
+		</ul>
+	</nav>
+	<h2 class="subhead"><b>$</b>{{ info["Price"] }} size {{ info["Size"] }} {{ info["Brand"] }} <br></h2>
+	<div class="content">
+
+{#    <div>{{ info["Description"] }}</div>#}
+
+
+	<blockquote> {{  info["Description"] }}
+    </blockquote>
+         <img src = {{ info["Picture"] }} class="center" style="margin-bottom:160px;">
+        <div style="font-size:25px;margin-bottom:50px;margin-top:-110px;"><b>average response time: </b> {{ info["Response_Time"] }}</div>
+        <div style="font-size:25px;margin-bottom:50px;"><b>sold by </b>{{ info["Seller"] }}</div>
+        <button onclick="myFunction()" id ="return" >back to search</button>
+                        <button id ="delete" >delete</button>
+                        <button id ="edit" >edit</button>
+
+
+	</div>
+
+	<blockquote class="quote">
+            <div class = "bigbutton"><a href="mailto:" {{ info["Email"] }}><button>email seller</button></a></div>
+            <div ><button id ="favorite" class = "bigbutton" style="margin-right:50px;">add to favorites</button></div>
+	</blockquote>
+
+	</article>
+	</body>
+</html>
+{#            START HERE#}
+{#            <div class="grid-container">#}
+{#              <div class="item">#}
+{#                  <div class = "row">#}
+{#                    <div class = "col-md-6" id = "top">#}
+{#                        <h2 class="header_edit words"><b>{{ info["Name"] }}</b></h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#              <div class = "row">#}
+{#                    <div class = "col-md-5 words price" id = "namespace">#}
+{#                        <b>Price: $</b>{{ info["Price"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+{#              <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <div id = "picture_jpg">#}
+{#                            <img src = {{ info["Picture"] }} alt="Image" class="picture">#}
+{#                        </div>#}
+{#                        <div class = "col-md-4">#}
+{#                        <div class="words description">{{ info["Description"] }}</div>#}
+{#                    </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#              <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <div class="words">{{ info["Description"] }}</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#              <div class = "row">#}
+{#                    <div class = "col-md-3">#}
+{#                         <div class="words"><b>Size: </b>{{ info["Size"] }}</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#               <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <div class="words"><b>Brand: </b>{{ info["Brand"] }}</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#              </div>#}
+{#//SELLER SIDE#}
+{#              <div class="seller">#}
+{#                  <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <b>sold by </b>{{ info["Seller"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class = "row">#}
+{#                    <div class = "col-md-10">#}
+{#                        <div id = "picture_jpg">#}
+{#                            <img src = {{ info["Profile_Picture"] }} alt="Image" class="profpic">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                  <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <div class = "adjust"></div><b>email </b> {{ info["Seller"] }} at <a href="mailto:mls2290@columbia.edu" class = "email">{{ info["Email"] }}</a></div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#                  <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <b>her average response time is </b>{{ info["Response_Time"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                 <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <div class="mapouter"><div class="gmap_canvas"><iframe width="450" height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=columbia%20university&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/20-off-discount-for-elegant-themes-divi-sale-coupon-code-2019/">elegance theme wordpress</a></div><style>.mapouter{position:relative;text-align:right;height:549px;width:628px;}.gmap_canvas {overflow:hidden;background:none!important;height:549px;width:628px;}</style></div>#}
+{#                    </div>#}
+{#                 </div>#}
+{#               <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <button id ="delete" onclick="location.href = 'http://127.0.0.1:5000/search';" >Delete</button>#}
+{#                        <button id ="delete" >Delete</button>#}
+{#                        <button id ="edit" >Edit</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div id = "item_ info"></div>#}
+{#            <div id = "edit_item"></div>#}
+{#            <div class = "container">#}
+{#            #}
+
+{#            //END HERE#}
+{#                <div class = "row">#}
+{#                    <div class = "col-md-6" id = "top">#}
+{#                        <h2 class="header_edit"><b>{{ info["Name"] }}</b></h2><br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class = "row">#}
+{#                    <div class = "col-md-5" id = "namespace">#}
+{#                        <b>Price: $</b>{{ info["Price"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class = "row">#}
+{#                    <div class = "col-md-10">#}
+{#                        <div id = "picture_jpg">#}
+{#                            <img src = {{ info["Picture"] }} alt="Image" height="400" width="600">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+{#                <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <b>Description: </b>{{ info["Description"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+                <br>
+{#                <div class = "row">#}
+{#                    <div class = "col-md-3">#}
+{#                         <b>Size: </b>{{ info["Size"] }}<br><br>#}
+{#                    </div>#}
+{#                </div>#}
+                <br>
+{#                 <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <b>Brand: </b>{{ info["Brand"] }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class = "row">#}
+{#                    <div class = "col-md-5" id = "pic_space">#}
+{#                        <b>Type:</b> {{ info["Type"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+                <br>
+{#                <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <b>Email: </b>{{ info["Email"] }}<br>#}
+{#                    </div>#}
+{#                </div>#}
+                <br>
+{#                 <div class = "row">#}
+{#                    <div class = "col-md-8">#}
+{#                        <button id ="delete" onclick="location.href = 'http://127.0.0.1:5000/search';" >Delete</button>#}
+{#                        <button id ="delete" >Delete</button>#}
+{#                        <button id ="edit" >Edit</button>#}
+{##}
+{##}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+        {%  endblock %}
+</body>
+</html>

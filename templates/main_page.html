@@ -1,0 +1,252 @@
+{#Michaella Schaszberger#}
+{#mls2290#}
+{#UI Design, HW8#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="width=device-width">
+   <style>
+
+       .filterDiv {
+          float: left;
+          width: 300px;
+          line-height: 30px;
+          text-align: center;
+          margin: 2px;
+          display: none;
+           margin-left: 55px;
+           border-radius: 25px;
+        }
+       .header {
+         padding: 30px;
+         text-align: center;
+           background: white;
+        }
+       .header h1 {
+           font-size: 60px;
+           font-weight:bold;
+        }
+       .pic{
+          border-radius: 25px;
+            height:300px;
+           width:300px;
+       }
+
+        .show {
+          display: block;
+        }
+
+        .container {
+          margin-top: 20px;
+          overflow: hidden;
+        }
+
+        .font{
+            font-size:25px;
+        }
+        /* Style the buttons */
+        .btn {
+          border: none;
+          outline: none;
+            font-size:20px;
+          {#padding: 12px 16px;#}
+          background-color: #f1f1f1;
+          cursor: pointer;
+            margin-top: 30px;
+            margin-left: 60px;
+            height: 100px;
+            width: 120px;
+            font-size:20px;
+        }
+
+        .btn:hover {
+          background-color: #ddd;
+        }
+
+        .btn.active {
+          background-color: #666;
+          color: white;
+}
+       .item{
+           width: 500px;
+           height: 500px;
+           margin-left:50px;
+       }
+       #desc{
+           {#margin-left: 35px;#}
+           {#border-style:solid;#}
+       }
+       .title_text{
+
+           font-size:60px;
+           font-weight: bold;
+           {#margin-left: 48px;#}
+       }
+       p{
+           font-size: 20px;
+       }
+       .main{
+           width: 100%;
+       }
+       .col-md-12{
+            width: 100%;
+       }
+       .diff{
+           font-size:25px;
+           font-weight:bold;
+       }
+{#       .difftext{
+           border-style:solid;
+       }#}
+
+       #myBtnContainer{
+           align-content:center;
+
+       }
+       .browse{
+           margin-top:45px;
+         font-size:35px;
+           font-weight:bold;
+       }
+    .text_over{
+        font-size:18px;
+        font-weight:bold;
+    }
+   </style>
+</head>
+<body>
+    <div class="header">
+      <h1 >vestio</h1>
+        <p class="text-center">buying your favorite items on campus shouldn't be hard, so vestio handles
+                        all of the logistical information to make this exchange as easy as possible. vestio makes it easy for you to know when
+                         sellers are available and for you to get in touch with them so you can start wearing your newest items </p>
+    </div>
+    <div>
+        {% extends "layout.html" %}
+        {% block content %}
+    </div>
+    <div class="container main">
+{#            <div class = "row">#}
+{#                <div class = "col-md-12">#}
+{#                    <div class="title_text text-center">vestio</div>#}
+{#                </div>#}
+{#            </div>#}
+            <div class = "row">
+                <div class = "col-md-12" id = "desc">
+{#                    <p class="text-center">buying your favorite items on campus shouldn't be hard, so vestio handles#}
+{#                        all of the logistical information to make this exchange as easy as possible. vestio makes it easy for you to know when#}
+{#                         sellers are available and for you to get in touch with them so you can start wearing your newest items </p><br><br><br><br>#}
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col-md-4 text-center">
+                    <p class="text-center diff" >what's different? </p>
+                </div>
+                <div class = "col-md-8 text-center">
+                    <div class = "difftext text-center"><p class="text-center"> <u class="diff">schedule</u> of seller's availability  ⦾  <u class="diff">school email</u> for improved responsiveness</p>
+                        <p class="text-center text-center">preferred <u class="diff">place to exchange</u> items  ⦾  seller's average <u class="diff">response time</u></p>
+{#                <div class = "col-md-5 text-center">#}
+{#                    <p class="text-center text-center"> school email for improved responsiveness</p>#}
+{#                    <p class="text-center text-center"> seller's average response time </p></div>#}
+{#                </div>#}
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class = "col-md-12 text-center">
+                    <p class="text-center browse">start by browsing your favorite brands and styles</p>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-md-12 main" id = "desc">
+                        <div id="myBtnContainer text-center main">
+                          <button class="btn active text-center font" onclick="filterSelection('all')">our picks!</button>
+                          <button class="btn text-center font" onclick="filterSelection('lululemon')">lululemon</button>
+                          <button class="btn text-center font" onclick="filterSelection('zara')">zara</button>
+                          <button class="btn text-center font" onclick="filterSelection('everyday')">everyday</button>
+                          <button class="btn text-center font" onclick="filterSelection('work')">work</button>
+                        <button class="btn text-center font" onclick="filterSelection('formal')">formal</button>
+                        </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-12" id = "desc">
+                    <div class="container text-center">
+                        <div class="filterDiv lululemon"><div class = "text_over">Lululemon pants</div><a href="http://127.0.0.1:5000/search"><img src="https://media1.popsugar-assets.com/files/thumbor/PIukKaWA_D6SePxwWx-nqNgX5Jw/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/04/25/948/n/1922729/0a4927365ae0f6e7ed59e6.76604339_/i/Best-Lululemon-Leggings.jpg" class = "pic"></a></div>
+                              <div class="filterDiv work"><div class = "text_over">Theory dress</div><a href="http://127.0.0.1:5000/search"><img src="https://images.garmentory.com/images/2243622/large/Theory-Long-Sleeve-Paneled-Shift-Dress-in-Deep-Royal-20190208235222.jpg?1549669946" class = "pic"></a></div>
+                              <div class="filterDiv everyday"><div class = "text_over">Free People dress</div><a href="http://127.0.0.1:5000/search"><img src="https://s7d5.scene7.com/is/image/FreePeople/51254894_211_a?$a15-category$&qlt=80&fit=constrain" class = "pic"></a></div>
+                              <div class="filterDiv work"><div class = "text_over">Banana Republic blazer</div><a href="http://127.0.0.1:5000/search"><img src="https://bananarepublicfactory.gapfactory.com/Asset_Archive/BFWeb/content/0017/454/961/assets/190723_BRFOL_US_WDP_CTA_05.jpg" class = "pic"></a></div>
+                              <div class="filterDiv lululemon"><div class = "text_over">Lululemon bra</div><a href="http://127.0.0.1:5000/search"><img src="https://s.yimg.com/ny/api/res/1.2/AKgaMfYIdT94HGk2io2Lcw--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en-US/homerun/motleyfool.com/a600d6c7ba58d5d78b2afff244d60266" class = "pic"></a></div>
+                              <div class="filterDiv work"><div class = "text_over">H&M blouse</div><a href="http://127.0.0.1:5000/search"><img src="https://lp2.hm.com/hmgoepprod?set=source[/5a/9b/5a9ba60e9683094f44d3ab3b49202695e2a1300d.jpg],origin[dam],category[ladies_shirtsblouses_blouses],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]" class = "pic"></a></div>
+                              <div class="filterDiv everyday zara"><div class = "text_over">Zara graphic top</div><a href="http://127.0.0.1:5000/search"><img src="https://static.zara.net/photos///2019/V/0/1/p/5350/326/835/2/w/560/5350326835_1_1_1.jpg?ts=1558371691248" class = "pic"></a></div>
+                              <div class="filterDiv formal zara"><div class = "text_over">Zara dress</div><a href="http://127.0.0.1:5000/search"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></a></div>
+                              <div class="filterDiv everyday"><div class = "text_over">Urban Outfitters long sleeve top</div><a href="http://127.0.0.1:5000/search"><img src="https://s7d5.scene7.com/is/image/UrbanOutfitters/72501778_013_b?$medium$&qlt=80&fit=constrain" class = "pic"></a></div>
+                              <div class="filterDiv lululemon"><div class = "text_over">Lululemon rain jacket</div><a href="http://127.0.0.1:5000/search"><img src="https://cdn.shoplightspeed.com/shops/607212/files/11478678/lululemon-hit-reset-1-2-zip-jacket.jpg" class = "pic"></a></div>
+                              <div class="filterDiv everyday"><div class = "text_over">Urban Outfitters corduroy dress</div><a href="http://127.0.0.1:5000/search"><img src="https://s7g10.scene7.com/is/image/UrbanOutfittersEU/0130090551245_001_b?$medium$&qlt=80&fit=constrain" class = "pic"></a></div>
+                              <div class="filterDiv everyday"><div class = "text_over">Gap denim shirt</div><a href="http://127.0.0.1:5000/search"><img src="https://www3.assets-gap.com/webcontent/0017/143/870/cn17143870.jpg" class = "pic"></a></div>
+                              <div class="filterDiv formal zara"><div class = "text_over">Zara yellow dress</div><a href="http://127.0.0.1:5000/search"><img src="https://static.zara.net/photos///2019/V/0/1/p/4437/096/300/2/w/560/4437096300_1_1_1.jpg?ts=1556533147580" class = "pic"></a></div>
+                              <div class="filterDiv formal"><div class = "text_over">Lulus dress</div><a href="http://127.0.0.1:5000/search"><img src="https://www.lulus.com/images/product/xlarge/2525022_458062.jpg" class = "pic"></a></div>
+
+                    </div>
+                </div>
+            </div>
+{#            <div class = "row">#}
+{#                <div class = "col-md-12 text-center">#}
+{#                     <img src ="https://www.jantecneon.com/mm5/graphics/00000001/GS-25-51.png" class = "item center">#}
+
+{#                </div>#}
+{#            </div>#}
+
+        <script>
+        filterSelection("all")
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("filterDiv");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+          }
+        }
+
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+        </script>
+
+{%  endblock %}
+</body>
+</html>

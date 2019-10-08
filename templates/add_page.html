@@ -1,0 +1,105 @@
+{#Michaella Schaszberger#}
+{#mls2290#}
+{#UI Design, HW8#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'add_page.js') }}"></script>
+        <script>
+            var clothes_data = {{clothes_data|safe}};
+            var curr_id = {{curr_id|safe}};
+            console.log("test");
+            console.log(clothes_data);
+            console.log(curr_id);
+        </script>
+
+        <style>
+           .main{
+                width: 100%;
+            }
+            .item_entry_container{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-color:black;
+
+            }
+            input{
+                margin-top:10px;
+                margin-bottom: 10px;
+            }
+            #submit{
+                margin-top:20px;
+                background-color: cornflowerblue;
+                border-radius: 15px;
+                width: 250px;
+                height: 100px;
+                color: white;
+                font-size: 40px;
+                border-color: cornflowerblue;
+            }
+            #add_input{
+                font-weight:bold;
+                font-size:25px;
+            }
+            #headers{
+                font-size:40px;
+                text-decoration: underline;
+                {#border-style: solid;#}
+            }
+            #title_edit{
+                font-size:60px;
+            }
+            #info{
+                font-size:30px;
+            }
+           .header {
+             padding: 30px;
+             text-align: center;
+               background: white;
+              font-size: 60px;
+               font-weight:bold;
+
+            }
+           .header h1 {
+               font-size: 60px;
+               font-weight:bold;
+            }
+
+                </style>
+    </head>
+    <body>
+          <h1 class = "header" >vestio</h1>
+
+        <div>
+            {% extends "layout.html" %}
+            {% block content %}
+        </div>
+
+        <div class = "container main">
+            <h1 class = "text-center" id="title_edit">sell an item</h1>
+            <div class = "text-center" id="info">just fill out the information below</div>
+            <div class= "col-md-6 item_entry_container text-center" >
+                <div id="headers">you</div><br><br>
+                <div id="add_input">your name* <br><input id="seller"></input> </div><br>
+                <div id="add_input">email* <br>(how buyers will initially contact you) <br> <input id="email"></input></div><br>
+                <div id="add_input">picture of you<br> <input id="seller_picture"></input> </div><br>
+            </div>
+            <div class= "col-md-6 item_entry_container text-center">
+                <div  id="headers">your item</div><br><br>
+                <div id="add_input">name* <br><input id="name"></input> </div><br>
+               <div id="add_input">type <br><input id="type"></input> </div><br>
+                <div id="add_input">brand <br><input id="brand"></input> </div><br>
+                <div id="add_input">price* <br><input id="Price"></input> </div><br>
+                <div id="add_input">description<br> <textarea id="description"></textarea></div><br>
+                <div id="add_input">size* <br> <textarea id="Size"></textarea> </div><br>
+                <div id="add_input">picture link<br> <input id="picture"></input> </div><br>
+                   <div id="add_input"><button id="submit">Submit</button></div><br>
+                        <div id = "link"></div>
+            </div>
+        </div>
+        {%  endblock %}
+    </body>
+</html>

@@ -1,0 +1,274 @@
+{#Michaella Schaszberger#}
+{#mls2290#}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'search_results.js') }}"></script>
+    <script>
+        var clothes_data = {{ clothes_data|safe }};
+        console.log(clothes_data)
+    </script>
+
+    <style>
+        {#slide show widget source: http://qnimate.com/creating-a-slider-using-html-and-css-only/#}
+        .slider-holder
+        {
+            width: 800px;
+            height: 400px;
+            background-color: yellow;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .image-holder
+        {
+            width: 2400px;
+            background-color: white;
+            height: 400px;
+            clear: both;
+            position: relative;
+
+            -webkit-transition: left 2s;
+            -moz-transition: left 2s;
+            -o-transition: left 2s;
+            transition: left 2s;
+        }
+
+        .slider-image
+        {
+            width: 800px;
+            height: 400px;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+        }
+
+        #slider-image-1:target ~ .image-holder
+        {
+
+            left: 0px;
+        }
+
+        #slider-image-2:target ~ .image-holder
+        {
+            left: -800px;
+        }
+
+        #slider-image-3:target ~ .image-holder
+        {
+            left: -1600px;
+        }
+
+        .button-holder
+        {
+            position: relative;
+            top: -20px;
+        }
+
+        .slider-change
+        {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            border-radius: 5px;
+        }
+        #searchQ{
+            width: 600px;
+            font-size: 30px;
+            margin-left: -380px;
+        }
+        #entry{
+            {#border-color:blue;#}
+        }
+        #enter{
+            margin-top: -19px;
+            font-size: 30px;
+            font-weight:bold;
+        }
+        #search_submit{
+             border-radius: 7px;
+            width: 160px;
+            height: 50px;
+            color: black;
+            font-size: 30px;
+            margin-left: 80px;
+            margin-top: -0.5px;
+            }
+        #love{
+            border-radius: 15px;
+            width: 200px;
+            height: 70px;
+            color: black;
+            font-size: 25px;
+            border-color: black;
+            background-color:grey;
+            }
+        #search_results{
+            margin-left:15px;
+        }
+       .main{
+           width: 100%;
+       }
+        .input_align{
+            text-align:center;
+        }
+        .searchText{
+            font-size: 55px;
+            font-weight:bold;
+        }
+
+        #love{
+            margin-top: 400px;
+        }
+        .header {
+         padding: 30px;
+         text-align: center;
+           background: white;
+          font-size: 60px;
+           font-weight:bold;
+        }
+       .header h1 {
+           font-size: 60px;
+           font-weight:bold;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: auto auto auto auto;
+          grid-gap: 10px;
+          background-color: #2196F3;
+          padding: 10px;
+        }
+
+        .grid-item {
+          background-color: "#F0F0F0";
+          border: 1px solid rgba(0, 0, 0, 0.8);
+          padding: 20px;
+          font-size: 30px;
+          text-align: center;
+        }
+
+    .searching{
+        margin-left:-30px;
+    }
+        .pic{
+            height:90px;
+            width:90px;
+        }
+        .price{
+            font-size:30px;
+            font-weight:bold;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+      <h1 class = "header">vestio</h1>
+
+    <script>function favoriteFn(){
+        alert("you've added this item to your favorites!");
+    }
+
+    </script>
+    {% extends "layout.html" %}
+    {% block content %}
+
+    <div class = "container main">
+
+        <div class = "row">
+            <div class="col-md-12">
+                <div class="text-center searchText">search your favorite styles and brands</div>
+                <hr style=" border-width: 2px;">
+                <br>
+                <div class="price">price range:</div><br>
+                    <div class="text-align" style="margin-left:-10px;font-size:25px; margin-bottom:20px;">$ <input  id ="low"type="text" class="text-align"></input> $$$ <input id="high" class=text-align" type="text"></input></div>
+             </div>
+            <div class="text-align" style="margin-bottom:20px; font-size:25px;">shopping for <b style="font-size:30px;">formal</b> outfits? <input  id ="formal" type="checkbox" class="text-align"></input></div>
+            <div class="text-align" style="font-size:25px;">shopping for <b style="font-size:30px;">work</b> clothes? <input  id ="work" type="checkbox" class="text-align"></input></div>
+
+
+        </div>
+
+{#        <div class = "row">#}
+{#            <div class="col-md-12">#}
+{#                    <div class="slider-holder">#}
+{#                        <span id="slider-image-1"></span>#}
+{#                        <span id="slider-image-2"></span>#}
+{#                        <span id="slider-image-3"></span>#}
+{#                        <div class="image-holder">#}
+{#                            <img src="https://ksassets.timeincuk.net/wp/uploads/sites/46/2016/10/Spring-summer-2017-fashion-trends.jpg" class="slider-image" />#}
+{#                            <img src="https://ksassets.timeincuk.net/wp/uploads/sites/46/2019/02/SS19-TRENDS-opening-banner-920x518.jpg" class="slider-image" />#}
+{#                            <img src="https://www.wgsn.com/blogs/wp-content/uploads_22/2017/03/CATWALK-KEY-TRENDS.png" class="slider-image" />#}
+{#                        </div>#}
+{#                        <div class="button-holder">#}
+{#                            <a href="#slider-image-1" class="slider-change"></a>#}
+{#                            <a href="#slider-image-2" class="slider-change"></a>#}
+{#                            <a href="#slider-image-3" class="slider-change"></a>#}
+{#                        </div>#}
+{#                     </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class = "row">#}
+{#            <div class="col-md-12">#}
+{#                <div class="text-center">(flip through the pictures for some inspiration) </div>#}
+{#            </div>#}
+{#            <br>#}
+{#        </div>#}
+{#        <div class = "row">#}
+{#            class="text-center" for col-md-4#}
+{#            <div class="col-md-12 text-center">#}
+{#                <br><div id = "enter">lookup</div>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#        <div class = "row"></div>#}
+{#            <div class="col-md-12 input_align">#}
+{#                <input id="searchQ" class="input_align"></input>#}
+{#                input_align class#}
+{#            </div>#}
+{##}
+{#        </div>#}
+        <br>
+        <div class = "row"></div>
+            <div class="col-md-4 searching">
+            </div>
+            <div class="col-md-4 ">
+                <input id="searchQ" class=""></input>
+{#                input_align class#}
+            </div>
+                <div class = "col-md-4">
+                <button id="search_submit">Search</button>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-12 input_align">
+                <div id = "search_results">
+                </div>
+            </div>
+        </div>
+{#        <div class = "row">#}
+{#            <div class = "col-md-12  samples">#}
+{#                <div class="grid-container">#}
+{#                  <div class="grid-item"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></div>#}
+{#                  <div class="grid-item"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></div>#}
+{#                  <div class="grid-item"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></div>#}
+{#                  <div class="grid-item"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></div>#}
+{#                  <div class="grid-item"><img src="https://i.pinimg.com/originals/0c/b6/a8/0cb6a8c7ace6cedec3de9f4b8eb4e5c8.jpg" class = "pic"></div>#}
+{#                  <div class="grid-item">6</div>#}
+{#                  <div class="grid-item">7</div>#}
+{#                  <div class="grid-item">8</div>#}
+{#                  <div class="grid-item">9</div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+    {%  endblock %}
+</body>
+</html>

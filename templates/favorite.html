@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'favorite.js') }}"></script>
+        <script>
+
+            var my_likes = {{ my_likes|safe }};
+
+
+        </script>
+        <style>
+           .header {
+         padding: 30px;
+               padding-bottom:-20px;
+         text-align: center;
+           background: white;
+           font-size: 60px;
+            font-weight: bold;
+        }
+       .header h1 {
+           font-size: 60px;
+           font-weight:bold;
+        }
+        </style>
+</head>
+<body>
+      <h1 class="header">vestio</h1>
+    <div>
+        {% extends "layout.html" %}
+        {% block content %}
+    </div>
+            <h1 style="margin-left:820px;">your favorites!</h1>
+           <div id = "results"></div>
+    {%  endblock %}
+</body>
+</html>

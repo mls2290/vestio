@@ -1,0 +1,61 @@
+{#Michaella Schaszberger#}
+{#mls2290#}
+{#UI Design, HW8#}
+<!DOCTYPE html>
+{#For help with the bootstrap nav bar:#}
+{#citation: https://www.w3schools.com/booTsTrap/tryit.asp?filename=trybs_navbar&stacked=h#}
+<html lang="en">
+    <head>
+        <style>
+            .navbar-inner {
+                height: 80px;
+                padding-top:15px;
+            }
+            .container{
+                float:top;
+            }
+            .tab{
+                font-size:25px;
+                justify-content: center;
+                margin-left: 250px;
+            }
+       .header {
+         padding: 30px;
+         text-align: center;
+           background: white;
+
+        }
+       .header h1 {
+           font-size: 60px;
+           font-weight:bold;
+        }
+
+        </style>
+        <meta charset="utf-8">
+    {#  <meta name="viewport" content="width=device-width, initial-scale=1">#}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+{# <div class="header">#}
+{#    </div>#}
+        <nav class="navbar navbar-default navbar-inner">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class = "tab"><a class="navbar-brand" href="http://127.0.0.1:5000/">vestio</a></div>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active">
+              <li class = "tab justify-content-center "><a href="http://127.0.0.1:5000/search">lookup</a></li>
+              <li class = "tab justify-content-center"><a href="http://127.0.0.1:5000/favorites">favorites</a></li>
+              <li class = "tab justify-content-center"><a href="http://127.0.0.1:5000/add_item">sell</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class = "container">
+            {% block content %}
+            {%  endblock %}
+        </div>
+    </body>
+</html>
